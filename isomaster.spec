@@ -1,5 +1,5 @@
 %define name isomaster
-%define version 0.8.1
+%define version 1.0
 %define release %mkrel 1
 
 Summary: GTK+-based ISO image editor
@@ -12,7 +12,7 @@ License: GPL
 Group: Archiving/Cd burning
 Url: http://littlesvr.ca/isomaster/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: libgtk+2-devel
+BuildRequires: gtk+2-devel
 BuildRequires: desktop-file-utils
 BuildRequires: ImageMagick
 
@@ -81,4 +81,4 @@ rm -rf $RPM_BUILD_ROOT
 %_liconsdir/%{name}.png
 %_iconsdir/%{name}.png
 %_miconsdir/%{name}.png
-%_mandir/man1/%{name}.1.bz2
+%_mandir/man1/%{name}.1.*

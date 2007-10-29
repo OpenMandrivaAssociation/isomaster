@@ -1,5 +1,5 @@
 %define name	isomaster
-%define version	1.1
+%define version	1.2
 %define release	%mkrel 1
 
 Summary:	GTK+-based ISO image editor
@@ -30,16 +30,16 @@ can open both ISO and NRG files but can only save as ISO.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
-%find_lang %name
+%find_lang %{name}
 
-perl -pi -e 's,/usr/share/%{name}/icons/isomaster.png,%{name},g' %buildroot%{_datadir}/applications/%{name}.desktop
+perl -pi -e 's,/usr/share/%{name}/icons/isomaster.png,%{name},g' %{buildroot}%{_datadir}/applications/%{name}.desktop
 
-mkdir -p %buildroot%{_iconsdir}/hicolor/{48x48,32x32,16x16}/apps
-convert -scale 48 icons/isomaster.png %buildroot%_iconsdir/hicolor/48x48/apps/%{name}.png 
-convert -scale 32 icons/isomaster.png %buildroot%_iconsdir/hicolor/32x32/apps/%{name}.png
-convert -scale 16 icons/isomaster.png %buildroot%_iconsdir/hicolor/16x16/apps/%{name}.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/{48x48,32x32,16x16}/apps
+convert -scale 48 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png 
+convert -scale 32 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+convert -scale 16 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 %post
 %update_icon_cache hicolor
@@ -51,12 +51,12 @@ convert -scale 16 icons/isomaster.png %buildroot%_iconsdir/hicolor/16x16/apps/%{
 %clean_desktop_database
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-%files -f %name.lang
+%files -f %{name}.lang
 %defattr(-,root,root)
-%_bindir/%{name}
-%_datadir/%{name}
-%_datadir/applications/%{name}.desktop
-%_iconsdir/hicolor/*/apps/%{name}.png
-%_mandir/man1/%{name}.1*
+%{_bindir}/%{name}
+%{_datadir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_mandir}/man1/%{name}.1*

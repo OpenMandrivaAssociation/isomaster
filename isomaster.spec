@@ -1,11 +1,7 @@
-%define name	isomaster
-%define version	1.2
-%define release	%mkrel 2
-
 Summary:	GTK+-based ISO image editor
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		isomaster
+Version:	1.3
+Release:	%mkrel 1
 Source0:	http://littlesvr.ca/isomaster/releases/%{name}-%{version}.tar.bz2
 Patch0:		isomaster-0.8.1-directories.patch
 License:	GPLv2
@@ -41,13 +37,13 @@ convert -scale 32 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/32x32/app
 convert -scale 16 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 %post
-%update_icon_cache hicolor
-%update_menus
-%update_desktop_database
+%{update_icon_cache hicolor}
+%{update_menus}
+%{update_desktop_database}
 %postun
-%clean_icon_cache hicolor
-%clean_menus
-%clean_desktop_database
+%{clean_icon_cache hicolor}
+%{clean_menus}
+%{clean_desktop_database}
 
 %clean
 rm -rf %{buildroot}
@@ -59,3 +55,4 @@ rm -rf %{buildroot}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_mandir}/man1/%{name}.1*
+

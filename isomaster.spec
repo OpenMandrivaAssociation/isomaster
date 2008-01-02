@@ -7,6 +7,7 @@ Patch0:		isomaster-0.8.1-directories.patch
 License:	GPLv2
 Group:		Archiving/Cd burning
 URL:		http://littlesvr.ca/isomaster/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	ImageMagick

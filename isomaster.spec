@@ -1,6 +1,6 @@
 Summary:	GTK+-based ISO image editor
 Name:		isomaster
-Version:	1.3
+Version:	1.3.1
 Release:	%mkrel 1
 Source0:	http://littlesvr.ca/isomaster/releases/%{name}-%{version}.tar.bz2
 Patch0:		isomaster-0.8.1-directories.patch

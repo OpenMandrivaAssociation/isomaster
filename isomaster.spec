@@ -10,7 +10,7 @@ URL:		http://littlesvr.ca/isomaster/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk+2-devel
 BuildRequires:	desktop-file-utils
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 
 %description
 ISO Master is an open-source, easy to use, graphical CD image editor. 

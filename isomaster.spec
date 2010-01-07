@@ -1,7 +1,7 @@
 Summary:	GTK+-based ISO image editor
 Name:		isomaster
-Version:	1.3.5
-Release:	%mkrel 2
+Version:	1.3.7
+Release:	%mkrel 1
 Source0:	http://littlesvr.ca/isomaster/releases/%{name}-%{version}.tar.bz2
 Patch0:		isomaster-0.8.1-directories.patch
 License:	GPLv2
@@ -19,7 +19,7 @@ ISO, and create bootable ISOs - all in a graphical user interface. It
 can open both ISO and NRG files but can only save as ISO.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}
 %patch0 -p0 -b .directories
 
 %build
@@ -36,6 +36,9 @@ mkdir -p %{buildroot}%{_iconsdir}/hicolor/{48x48,32x32,16x16}/apps
 convert -scale 48 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png 
 convert -scale 32 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 convert -scale 16 icons/isomaster.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+
+mkdir -p %{buildroot}%{_datadir}/doc/%{name}
+mv %{buildroot}%{_datadir}/doc/bkisofs/* %{buildroot}%{_datadir}/doc/%{name}/
 
 %if %mdkversion < 200900
 %post
@@ -55,6 +58,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
+%doc %{_datadir}/doc/%{name}
 %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop

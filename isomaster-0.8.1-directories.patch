@@ -1,0 +1,9 @@
+--- Makefile	2007-03-18 10:41:13.000000000 -0700
++++ Makefile.new	2007-04-18 15:33:22.000000000 -0700
+@@ -1,5 +1,5 @@
+ # Other paths are relative to this.
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ 
+ # Where to install the executable.
+ BINPATH ?= $(PREFIX)/bin
